@@ -1,4 +1,4 @@
-name: Publish And Deploy Demo
+name: Publish And Deploy Realworld-nuxt
 on:
   push:
     tags:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest #执行环境
     steps:
 
     # 下载源码
@@ -25,7 +25,7 @@ jobs:
       id: create_release
       uses: actions/create-release@master
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }} #配置的TOKEN secret
       with:
         tag_name: ${{ github.ref }}
         release_name: Release ${{ github.ref }}
